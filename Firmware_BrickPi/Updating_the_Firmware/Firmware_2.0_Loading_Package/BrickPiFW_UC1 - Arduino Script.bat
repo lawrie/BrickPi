@@ -20,24 +20,24 @@ pause
 goto start )
 
 : Write the fuses
-avrdude -P COM6 -b 19200 -c avrisp -p m328p -U lfuse:w:0xFF:m
+avrdude -P COM7 -b 19200 -c avrisp -p m328p -U lfuse:w:0xFF:m
 pause
-avrdude -P COM6 -b 19200 -c avrisp -p m328p -U hfuse:w:0xDA:m
+avrdude -P COM7 -b 19200 -c avrisp -p m328p -U hfuse:w:0xDA:m
 pause
-avrdude -P COM6 -b 19200 -c avrisp -p m328p -U efuse:w:0x05:m
+avrdude -P COM7 -b 19200 -c avrisp -p m328p -U efuse:w:0x05:m
 pause
 
 : Write the bootloader hex file.  Assumes it's in the same directory.
-avrdude -P COM4 -b 19200 -c avrisp -p m328p -U flash:w:ATmegaBOOT_168_atmega328.hex
+avrdude -P COM7 -b 19200 -c avrisp -p m328p -U flash:w:ATmegaBOOT_168_atmega328.hex
 pause
 
 : Write the compiled BrickPi file.  Assumes it's in the same directory.
-avrdude -P COM4 -b 19200 -c avrisp -p m328p -U flash:w:BrickPiFW_Compressed_Communication.cpp.hex
+avrdude -P COM7 -b 19200 -c avrisp -p m328p -U flash:w:BrickPiFW_Compressed_Communication.cpp.hex
 pause
 
 : Write the eeprom file.  Assumes it's in the same directory.
 : You will need to make sure you're putting the right titled firmware on the right micrcontroller on the BrickPi
-avrdude -P COM4 -b 19200 -c avrisp -p m328p -U eeprom:w:BrickPi_EEPROM_UC1.hex
+avrdude -P COM7 -b 19200 -c avrisp -p m328p -U eeprom:w:BrickPi_EEPROM_UC1.hex
 
 :-P usb
 pause
